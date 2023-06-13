@@ -7,12 +7,33 @@ IP Address:10.50.34.83
 Stack Number: 15 # The Second Octet
 
 ################################################################################################
+Powershell
+################################################################################################
+Review
+
+  Get-Host | Select-Object -Property Version 
+  5.1.17763...
+  
+  Cmdlets are verb-noun
+  
+  1)  get-verb, gets all possible verbs
+  
+  2)  get-command, gets all commands
+        -type cmdlet | sort-object -property noun | format-table -groupby noun
+        
+  3) Get-Help <Cmdlet>
+        -online #will bring it up online
+        -examples
+        
+  4) Get-Alias -name <>
+  
+  5) Sset-alias -name <ip> -value <get-netipaddress>
+  
+  6)
+
 
 ################################################################################################
-
-
-################################################################################################
-
+Windows Remoting
 ################################################################################################
 
 
