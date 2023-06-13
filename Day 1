@@ -46,7 +46,18 @@ Review
         
   8) (get-process | select-object name,id,path | where-object {$_.id -lt '1000'}).count -> get the count of processes with an id that is less than 1000
   
-  9)
+  9) Class
+      Object is an instance of an object
+      
+      CIM Classess
+      get-cmiclass * #gets all the cim classes available to the user
+      get-ciminstance -classname win32_logicaldisk
+      get-ciminstance -classname win32_logicaldisk -filter "drivetype=3" | gm
+      
+      get-wmiobject -class win32_logicaldisk -filter "drivetype=3"
+      
+      get-ciminstance -class win32_bios
+  
       
 
 
@@ -54,11 +65,43 @@ Review
 Windows Remoting
 ################################################################################################
 
+      
+  10) Get-executionpolicy -list
+      anyone can run powershell 
+      
+      set-executionpolicy -executionpolicy unrestricted -scope Currentuser
+      
+  11) get-pssessionconfiguration
+      get-childitem 'HKLM:\SOFTWARE\Mircrosoft\Windows NT\CurrentVersion\NetworkList\Profiles\'
+      cat 1: powershell remoting enabled
+      
+  12) winrm get winrm/config, get winrm configurations, windows remote management
+      get-item wsman:\localhost\client\Trustedhosts
+      set-item wsman:\localhost\client\trustedhosts -value "file-server,domain-control
+      
+      
+  13) invoke-command -Computername file-server {get-service} -asjob
+  
+  14) Receive-Job <Job #>
+  
+  15) $session = New-PSSession -Computername File-Server
+      Invoke-Command -Session $session {get-service}
+      enter-PSSession -Session $session
+      
+  16) Ran off of the .NET Framework
 
 ################################################################################################
-
+Powershell Profiles
 ################################################################################################
-
+  1)  test-path -path $profile.currentusercurrenthost
+      test-path -path $profile.currentuserallhosts
+      No profiles on the current machine
+  
+  2) $profile | get-member -type NoteProperty
+  
+  3) new-item -itemtype file -path $profile -force
+  
+  $) ise $profile
 
 ################################################################################################
 
