@@ -7,6 +7,8 @@ IP Address:10.50.34.83
 Stack Number: 15 # The Second Octet
 
 http://10.50.21.56:8000/challenges#Primer_CLI_1
+JOHA-M-005
+reg passwd
 
 ################################################################################################
 Powershell
