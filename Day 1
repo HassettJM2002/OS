@@ -6,6 +6,8 @@ xfreerdp /u:andy.dwyer /v:10.50.34.83 /dynamic-resolution +glyph-cache +clipboar
 IP Address:10.50.34.83
 Stack Number: 15 # The Second Octet
 
+http://10.50.21.56:8000/challenges#Primer_CLI_1
+
 ################################################################################################
 Powershell
 ################################################################################################
