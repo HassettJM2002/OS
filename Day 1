@@ -6,9 +6,11 @@ xfreerdp /u:andy.dwyer /v:10.50.34.83 /dynamic-resolution +glyph-cache +clipboar
 IP Address:10.50.34.83
 Stack Number: 15 # The Second Octet
 
-http://10.50.21.56:8000/challenges#Primer_CLI_1
+http://10.50.21.56:8000/
 JOHA-M-005
 reg passwd
+
+
 
 ################################################################################################
 Powershell
@@ -113,6 +115,11 @@ CTFs
 1) program that opens when cmd or powershell is opened: conhost.exe
 2) 
 
+compare-object (get-content .\new.txt) (get-content .\old.txt)
+(get-content .\words.txt | sort-object -descending) | select -first 21
+get-content .\words.txt | sort | unique | measure-object
+test-path $profile.allusersallhosts
+gc $profile.allusersallhosts
 ################################################################################################
 
 ################################################################################################
