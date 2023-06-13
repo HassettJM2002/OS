@@ -32,6 +32,21 @@ Review
   6) Objects, have methods and attributes (properties)
       method -> action
       Property -> description, can pull information from
+       
+      Example Method
+        (get-process).name 
+        get-process | select-object name,id,path | ft
+  
+  7) Process
+        start-process notepad.exe
+        
+        stop-process -name notpad
+                or
+        (get-process notepad).kill()
+        
+  8) (get-process | select-object name,id,path | where-object {$_.id -lt '1000'}).count -> get the count of processes with an id that is less than 1000
+  
+  9)
       
 
 
