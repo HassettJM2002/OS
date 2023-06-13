@@ -25,11 +25,14 @@ Review
         -online #will bring it up online
         -examples
         
-  4) Get-Alias -name <>
+  4)  Aliases, not persistent
+        Get-Alias -name <>
+        Set-alias -name <ip> -value <get-netipaddress>
   
-  5) Sset-alias -name <ip> -value <get-netipaddress>
-  
-  6)
+  6) Objects, have methods and attributes (properties)
+      method -> action
+      Property -> description, can pull information from
+      
 
 
 ################################################################################################
