@@ -96,6 +96,15 @@ Powershell.exe
   set-itemproperty remove-itemproperty #appending new values, modifcation
   
   new-item, new-item property #create keys and properties for the registry keys
+  
+  -get-childitem HKLM:\Software\microsoft\windows\currentversion #subkeys not values
+  -get-item HKLM:\Software\microsoft\windows\currentversion\run #values but not subkeys
+   
+    Hive: HKEY_LOCAL_MACHINE\Software\microsoft\windows\currentversion
+      Name                           Property                                                                                                       
+      ----                           --------                                                                                                       
+      run                            SecurityHealth : C:\WINDOWS\system32\SecurityHealthSystray.exe  
+      
 
 ############################################################################################
 
