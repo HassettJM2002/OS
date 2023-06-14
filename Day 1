@@ -10,7 +10,9 @@ http://10.50.21.56:8000/
 JOHA-M-005
 reg passwd
 
-
+Day2
+Stack number #15, 2nd octet
+xfreerdp /u:andy.dwyer /v:10.50.22.182 /dynamic-resolution +glyph-cache +clipboard
 
 ################################################################################################
 Powershell
