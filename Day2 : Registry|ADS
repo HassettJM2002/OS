@@ -71,6 +71,32 @@ Connecting to other registry
 
   File -> Connect Network Registry
 
+Commnad Prompt
+
+  reg /?
+    query
+  
+  Example
+ CMD.exe     
+      reg query HLKM\software\microsoft\windows\currentversion\run
+        HKEY_LOCAL_MACHINE\software\microsoft\windows\currentversion\run
+        SecurityHealth    REG_EXPAND_SZ    %windir%\system32\SecurityHealthSystray.exe
+    
+    reg add hklm\software\microsoft\windows\current\version\run /v(#value) testkey /t(#datatype) REG_SZ /d(#path/file to run) C:\windows\system32\windowspowershell1\v1.0\poweshell.exe
+      The Operation Completed Successfully
+    
+    reg delete hklm\software\microsoft\windows\currentversion\run /v testkey
+      Delete the registry value testkey (Yes/No)? Yes
+      The operation completed successfully.
+      
+Powershell.exe
+
+  get-childitem, get-itemproperty, get-item #query registry
+
+  set-itemproperty remove-itemproperty #appending new values, modifcation
+  
+  new-item, new-item property #create keys and properties for the registry keys
+
 ############################################################################################
 
 ############################################################################################
