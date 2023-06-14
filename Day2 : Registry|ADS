@@ -29,6 +29,47 @@ Powershell Drives (PSDRive)
     USB History
     Wireless access point history
     + more :)
+    
+Persistence in the registry
+  (Slide 15)
+  HKLM..\Run
+  HKLM..\Winlogon
+  
+Interesting Registry locations
+  
+Baseline the Registry
+
+  1) Determine if the registry has been compromised
+  2) Importance of baselining
+  
+Active Notes
+
+  Registry : Hierarchical Database, stores configurations
+              (Hive, subkey, key value pair)
+  Registry broken into 5 hives
+  
+  HKCU
+    References all the data that is in for the current user
+    Stored in memory, is volatile
+  HKCR
+    Symbolic link Software classic
+  
+  HKLM: On boot of machine
+    Hardware: whats installed on the device
+    SAM: user / group accounts and hashes and passwords
+    Security: local security is located
+    System: System startup
+    
+  HKU: Has profile for all users
+    Well know sids
+    Anything of 1000 is going to be new users, actual users
+      
+  HKCC
+    Symbolic link to software LM -> software/ckasses
+    
+Connecting to other registry
+
+  File -> Connect Network Registry
 
 ############################################################################################
 
