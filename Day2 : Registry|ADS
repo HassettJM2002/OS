@@ -1,1 +1,51 @@
+############################################################################################
+                                        Registry
+############################################################################################
+
+Tools to deal with the registry
+
+  1) Regedit.exe
+  2) reg.exe
+  
+Manipulate remote registries
+
+SETHC.EXE
+
+Powershell Drives (PSDRive)
+
+  1) Create temp/perm connections to naviaget the registry
+    New-PSDrive -Name HKU -PSProvider Registry -Root HKEY_USERS
+    
+  They require name, psprovider, and the root
+  
+  Registry Changes 
+  
+    Some take restart
+    Some are immediate
+    
+  Forensically Relevant Keys
+    
+    Internet URL History
+    USB History
+    Wireless access point history
+    + more :)
+
+############################################################################################
+
+############################################################################################
+
+
+
+############################################################################################
+
+############################################################################################
+
+
+
+############################################################################################
+
+############################################################################################
+
+
+
 
