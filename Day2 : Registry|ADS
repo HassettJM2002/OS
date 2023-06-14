@@ -195,10 +195,57 @@ PS HKLM-Run:\> get item .
 New-PSDrive -Name S -PSProvider FileSystem -Root $WebDAVShare   
 cd S:             
 -----------------------------------------------------------------------------------------------
+PS C:\> echo "chow time in not long enough" > survey.txt
 
+PS C:\> Get-ChildItem .\survey.txt
+
+
+    Directory: C:\
+
+
+Mode                 LastWriteTime         Length Name                                                                                        
+----                 -------------         ------ ----                                                                                        
+-a----         6/14/2023   2:59 PM             62 survey.txt                                                                                  
+
+
+
+PS C:\> get-filehash .\survey.txt
+
+Algorithm       Hash                                                                   Path                                                   
+---------       ----                                                                   ----                                                   
+SHA256          B0D46146FA21A3B12713A8623F59B1AAC980FBF3CBE98EF425B2BFC60E52FFEC       C:\survey.txt 
+
+set-content .\survey.txt -value "chow time should be four hours long" -stream secret.info
+
+get-item .\survey.txt -stream *
+PSPath        : Microsoft.PowerShell.Core\FileSystem::C:\survey.txt::$DATA
+PSParentPath  : Microsoft.PowerShell.Core\FileSystem::C:\
+PSChildName   : survey.txt::$DATA
+PSDrive       : C
+PSProvider    : Microsoft.PowerShell.Core\FileSystem
+PSIsContainer : False
+FileName      : C:\survey.txt
+Stream        : :$DATA
+Length        : 62
+
+PSPath        : Microsoft.PowerShell.Core\FileSystem::C:\survey.txt:secret.info
+PSParentPath  : Microsoft.PowerShell.Core\FileSystem::C:\
+PSChildName   : survey.txt:secret.info
+PSDrive       : C
+PSProvider    : Microsoft.PowerShell.Core\FileSystem
+PSIsContainer : False
+FileName      : C:\survey.txt
+Stream        : secret.info
+Length        : 37
+-------------------------------------------------------------------------------------------------
+############################################################################################
+ADS
 ############################################################################################
 
-############################################################################################
+Looking for alternate data streams
+$data: no information, the default
+
+ads do not modify the hashes of the file
 
 
 
