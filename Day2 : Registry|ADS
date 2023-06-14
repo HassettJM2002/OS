@@ -106,11 +106,95 @@ Powershell.exe
       run                            SecurityHealth : C:\WINDOWS\system32\SecurityHealthSystray.exe  
       
 
+  new-item 'HKLM:\SOFTWARE\Microsoft\Office\14.0\security\trusted documents\trustrecords' -force
+
+  Hive: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Office\14.0\security\trusted documents
+
+  Name                           Property                                                                                                       
+  ----                           --------                                                                                                       
+  trustrecords
+  
+  New-ItemProperty ""
+  
+  
+  Rename-ItemProperty -path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run -name SecurityHealth -NewName Test
+  get-item HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+
+  Hive: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion
+  
+  Name                           Property                                                                                                       
+  ----                           --------                                                                                                       
+  Run                            Test : C:\WINDOWS\system32\SecurityHealthSystray.exe                                                           
+
+  Remove-ItemProperty
+  
+############################################################################################
+PSDrive
 ############################################################################################
 
-############################################################################################
+Get-PSDrive #gets the psdrive
+
+Get-Childitem HKLM:
+(Cant do it, permissions are denied for that user)
+
+-----------------------------------------------------------------------------------------------
+PS C:\WINDOWS\system32> cd C:\
+
+PS C:\> mkdir demo
 
 
+    Directory: C:\
+
+
+Mode                 LastWriteTime         Length Name                                                                                        
+----                 -------------         ------ ----                                                                                        
+d-----         6/14/2023   2:31 PM                demo                                                                                        
+
+
+
+PS C:\> New-PSDrive -name Demo -psprovide FileSystem -root C:\demo\
+
+Name           Used (GB)     Free (GB) Provider      Root                                                                      CurrentLocation
+----           ---------     --------- --------      ----                                                                      ---------------
+Demo                0.00         12.54 FileSystem    C:\demo\                                                                                 
+
+
+
+PS C:\> Get-PSDrive
+
+Name           Used (GB)     Free (GB) Provider      Root                                                                      CurrentLocation
+----           ---------     --------- --------      ----                                                                      ---------------
+Alias                                  Alias                                                                                                  
+C                  18.95         12.54 FileSystem    C:\                                                                                      
+Cert                                   Certificate   \                                                                                        
+Demo                0.00         12.54 FileSystem    C:\demo\                                                                                 
+Env                                    Environment                                                                                            
+Function                               Function                                                                                               
+HKCU                                   Registry      HKEY_CURRENT_USER                                                                        
+HKLM                                   Registry      HKEY_LOCAL_MACHINE                                                                       
+Variable                               Variable                                                                                               
+WSMan                                  WSMan 
+
+cd Demo:
+PS DEmo:\
+-----------------------------------------------------------------------------------------------
+New-PSDrive -name HKLM-Run -PSProvider Registry -Root HKEY_Local_Machine\Software\Microsoft\Windows\Currentversion\Run
+
+Name           Used (GB)     Free (GB) Provider      Root                                                                      CurrentLocation
+----           ---------     --------- --------      ----                                                                      ---------------
+HKLM-Run                               Registry      HKEY_Local_Machine\Software\Micr...                                                      
+
+
+
+PS C:\> cd HKLM-Run:
+
+PS HKLM-Run:\> get item .
+
+-----------------------------------------------------------------------------------------------
+[String]$WebDAVShare = '\\live.sysinternals.com\Tools'          
+New-PSDrive -Name S -PSProvider FileSystem -Root $WebDAVShare   
+cd S:             
+-----------------------------------------------------------------------------------------------
 
 ############################################################################################
 
