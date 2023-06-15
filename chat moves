@@ -1,0 +1,26 @@
+cat sort.del | sort
+garviel tarik aximand ezekyle sejanus erebus
+garviel@terra:~$ srt=$(cat sort.del)
+garviel@terra:~$ for i in $srt; do echo $i; done
+garviel
+tarik
+aximand
+ezekyle
+sejanus
+erebus
+garviel@terra:~$ $(for i in $srt; do echo $i >> sorted2.del; done)
+garviel@terra:~$ cat sorted2.del
+garviel
+tarik
+aximand
+ezekyle
+sejanus
+erebus
+garviel@terra:~$ cat sorted2.del | sort
+aximand
+erebus
+ezekyle
+garviel
+sejanus
+tarik
+garviel@terra:~$
