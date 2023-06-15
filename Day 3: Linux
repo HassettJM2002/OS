@@ -53,7 +53,7 @@ Filesystem Hierarchy
   bin(binary where commands are)
   sbin (executales for system matinanece)
   home (users home directories)
-  usr (user binaries)
+  /usr/bin (user binaries)
   etc (system configs)
   var (variable data)
   boot (eveyrthing pertaining to boot process except config files)
@@ -87,3 +87,4 @@ permisions
 -rwsr-xr-x -> the s runs with the owners perission of pings
 
 Sticky Bit -> turns limitations on
+
