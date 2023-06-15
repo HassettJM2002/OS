@@ -18,6 +18,8 @@ sudo !! -> previous command with admin privs
 sudo -l -> will find what commands can use with root level privileges
 file <> -> will let know what file type it is
 
+man -k(keyword) <keyword> will find commands with that name in it
+
 ----------------------------------------------------------------------------------------------------
 Variables
 a="100"
