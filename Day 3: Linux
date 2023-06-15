@@ -34,3 +34,15 @@ std error 2>
 piping
 
 output -> input
+
+----------------------------------------------------------------------------------------------------
+For Loop
+iterate through list
+
+if statements
+elif
+else
+
+while loops
+while condition is true will do
+
