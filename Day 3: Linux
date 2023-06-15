@@ -22,6 +22,7 @@ man -k(keyword) <keyword> will find commands with that name in it
 
 awk -F "field delim" '{print $field}'
 cut -d"delimter" -f(fields) 1-(all fields after one) --outputer-delimiter
+
 ----------------------------------------------------------------------------------------------------
 Variables
 a="100"
