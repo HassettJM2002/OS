@@ -10,3 +10,9 @@ ip route show -> gets where the packets are going to be routed
 route -> gets ip routing table
 ss -> network connections
 netstat -> network connections, a lot more options to narrow down the search
+
+  netstat -anop -> network connections,executables
+
+iptables -> firewall rules
+sudo !! -> previous command with admin privs
+sudo -l -> will find what commands can use with root level privileges
