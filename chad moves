@@ -26,3 +26,48 @@ tarik
 garviel@terra:~$
 
 cat /etc/passwd | awk -F: '{print $1,$7}' | grep -v n "nologon" -> nobody
+
+ls -l will show who has the ability to gain access to the file
+
+rsautl
+           RSA utility for signing, verification, encryption, and decryption. Superseded by  pkeyutl(1).
+\
+file encrypted zip archive data, atleast v1.0 to extract
+
+LBUG 4 -> SHA-516,8,87
+$6$fSuf.jyW$NNZZMQkjGuu0S/gs0iQw8PbmRStlbJiJVT0fQc9JJa5SJztXAC9ehC.ym30ynWdwwiv8o/UABUHJdG.D5buGA.
+cat hash.del
+split on the $
+
+LBP2 -> 
+drwxr-xr-x 6 mephiston chapter 12288 Feb 28  2022 Bibliotheca
+r -> list the contents of the directory
+owner -> r
+group -> r
+not owner/group -> r
+
+for i in $valid; do cat /etc/passwd | cut -d: -f7 | grep $i ; done
+
+LBP3
+r | - | x 
+4 | 2 | 1
+----------
+4 + 1 = 5
+
+LB5
+find the file that is modifyable to mephiston
+
+LB7
+for i in $bibfiles; do ls -l $i; done | grep mephiston
+
+LB8
+sudo /media/Bibliotheca/Bibliotheca_quattuor/Tactica_Imperium
+
+ for i in $bibfiles; do ls -l $i; done | cut -d" " -f1- | grep guardsmen
+-rwxrwx--- 1 gaunt guardsmen 865 Feb 28  2022 /media/Bibliotheca/Bibliotheca_quattuor/Tactica_Imperium
+
+LBP9
+ Hid=$(find /media/Bibliotheca/ -type f -name ".*")
+
+LB10
+le /etc/ | egrep ".+\.d$"
