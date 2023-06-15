@@ -250,7 +250,7 @@ $data: no information, the default
 ads do not modify the hashes of the file
 
 
-
+get-childitem -Recurse -force | get-item -stream * -ErrorAction SilentlyContinue | where-object {$_.stream -eq '$DATA'}
 ############################################################################################
 
 ############################################################################################
