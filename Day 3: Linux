@@ -16,3 +16,17 @@ netstat -> network connections, a lot more options to narrow down the search
 iptables -> firewall rules
 sudo !! -> previous command with admin privs
 sudo -l -> will find what commands can use with root level privileges
+
+----------------------------------------------------------------------------------------------------
+Variables
+a="100"
+echo $a -> 100
+directories=$(ls -lisa)
+echo $directories
+----------------------------------------------------------------------------------------------------
+Redirections
+
+std input 0>
+std output 1>
+std error 2>
+
