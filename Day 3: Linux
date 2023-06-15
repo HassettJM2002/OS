@@ -16,6 +16,7 @@ netstat -> network connections, a lot more options to narrow down the search
 iptables -> firewall rules
 sudo !! -> previous command with admin privs
 sudo -l -> will find what commands can use with root level privileges
+file <> -> will let know what file type it is
 
 ----------------------------------------------------------------------------------------------------
 Variables
@@ -46,3 +47,43 @@ else
 while loops
 while condition is true will do
 
+----------------------------------------------------------------------------------------------------
+Filesystem Hierarchy
+/ -> root
+  bin(binary where commands are)
+  sbin (executales for system matinanece)
+  home (users home directories)
+  usr (user binaries)
+  etc (system configs)
+  var (variable data)
+  boot (eveyrthing pertaining to boot process except config files)
+  dev (device files)
+  lib (kernel modules and shared libaries)
+  mnt (generic mouunt point for devices)
+  proc (virtual file system)
+  opt (3rd party software)
+  meda (where the media is at)
+
+-------------------------------------------------------------------------------------------------------
+perms
+
+id -> get uid / gid / groups / sudo?
+cat etc/passwd | egrep "student"
+
+cat /etc/group | grep student
+member of own group, each has own group
+---------------------------------------------------------------------------------------------------------
+
+ls -lisa <file> -> perms of a file
+permisions
+  
+  read 4
+  write 2
+  execute 1
+
+  suid -> runs as owning user
+  sgid -> runs as owning group
+
+-rwsr-xr-x -> the s runs with the owners perission of pings
+
+Sticky Bit -> turns limitations on
