@@ -1,1 +1,12 @@
-adfasd
+Useful Linux Commands
+
+which <command> -> gets location of the command
+hostname -> gets hostname
+whoami -> whos logged in as
+who -> whos logged in the box and when
+ip addr or ifconfig -> get network information
+arp / ip neigh -> to get mac address and the ip address associated with those systems
+ip route show -> gets where the packets are going to be routed
+route -> gets ip routing table
+ss -> network connections
+netstat -> network connections, a lot more options to narrow down the search
