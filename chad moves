@@ -24,3 +24,5 @@ garviel
 sejanus
 tarik
 garviel@terra:~$
+
+cat /etc/passwd | awk -F: '{print $1,$7}' | grep -v n "nologon" -> nobody
