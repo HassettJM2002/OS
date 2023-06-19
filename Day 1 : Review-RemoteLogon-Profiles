@@ -12,6 +12,7 @@ reg passwd
 
 Day2
 Stack number #15, 2nd octet
+bijuudama123
 xfreerdp /u:andy.dwyer /v:10.50.22.182 /dynamic-resolution +glyph-cache +clipboard
 
 usacys
