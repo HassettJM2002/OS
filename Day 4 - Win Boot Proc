@@ -1,1 +1,29 @@
 
+JOHA-M-005
+Bijuudama123
+10.50.22.182
+.15.
+
+Windows Boot Process Notes
+
+BIOS
+→ MBR
+→ Boot manager mgr
+→ BCD
+→ OS Loader
+
+UEFI
+→ GPT
+→ Bootmgr.efi
+→ BCD
+→ OS loader winload.efi/winresume.efi
+
+POST
+1. Post
+2. BIOS / UEFI
+3. MBR / GPT
+4. VBS / -
+5.
+
+System (PID 4)
+SMSS.exe → SMSS.exe Sesh 0(system) / 1(user)
