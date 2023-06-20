@@ -30,3 +30,10 @@ SMSS.exe → SMSS.exe Sesh 0(system) / 1(user)
 
 reg query HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Spooler
 look at ImagePath
+
+
+bcedit.exe /?
+  get help for the boot configuation editor
+
+Create a backup
+  bcdedit /export C:\Lion_BCD
