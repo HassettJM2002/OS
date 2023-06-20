@@ -27,3 +27,5 @@ POST
 
 System (PID 4)
 SMSS.exe → SMSS.exe Sesh 0(system) / 1(user)
+
+reg query HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Spooler
