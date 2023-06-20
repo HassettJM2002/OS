@@ -18,6 +18,8 @@ xfreerdp /u:andy.dwyer /v:10.50.22.182 /dynamic-resolution +glyph-cache +clipboa
 usacys
 YbutedStatesArmyCyberSchool
 
+https://os.cybbh.io/public/os/latest/Day_0_Setup.html
+
 ################################################################################################
 Powershell
 ################################################################################################
