@@ -33,6 +33,7 @@ rsautl
            RSA utility for signing, verification, encryption, and decryption. Superseded by  pkeyutl(1).
 \
 file encrypted zip archive data, atleast v1.0 to extract
+openssl enc -d -aes128 -in cipher -out please.del -pbkdf2
 
 LBUG 4 -> SHA-516,8,87
 $6$fSuf.jyW$NNZZMQkjGuu0S/gs0iQw8PbmRStlbJiJVT0fQc9JJa5SJztXAC9ehC.ym30ynWdwwiv8o/UABUHJdG.D5buGA.
