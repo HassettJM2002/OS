@@ -75,3 +75,30 @@ systemctl restart cron.service
 everything on linux system is a file, running process is a file
 
 Orphans habe a ppid of 1
+
+zombie process, the memory it will be using is  0, its hangng up, defunct
+
+Get Processes
+    ps -a / elf
+
+    top, F key
+
+    htop, can see the tree, change colors and stuff, cool
+
+PS -elf , the [] suggest that the process is a kernel process
+
+    UIDs from 100-999 are system UIDS
+
+        System level process will use UIDS from 100-999
+
+    EUID -> where you have permissions to
+    RUID -> who onws the process
+
+Cron jobs for persitecne are very important for the test
+persistence of the test is the most important part
+
+Exmpales: 
+find processes with the PPID of 1
+    ps -elf | awk -F" " '{print $5}' | egrep "^1$" | wc -l
+find the handles of process by pid, look in the fd coloumn and look for number and then letters to find order and perms
+    sudo lsof -p 1427 | tail -4
