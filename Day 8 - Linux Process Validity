@@ -1,1 +1,60 @@
 Linux Process Validity
+
+Kernel Vs User Space
+-  Kenrel runs in its own memory space
+-  user mode restricts access so that it keeps it more secure
+
+Proc Owenrship
+-  EUID -> defines the access rights for a process
+-  RUID -> which user can do what
+
+System Calls
+-  Interaction between a process and kernel, process calls the kernel
+- Common system calls
+    fork() and exec()
+
+Orphan Processes
+-  Parent process exited, adopted by sbiin/init ppid
+-  zomvie - compelted process, cant be terminated
+
+Daemons (Services)
+  Programs that run in the background
+  man cron to see example of a daemon running during boot
+  Persistence - should be run for duration of system operation
+  Malicous process are sometimes orphaned and named to look like a daemon process
+
+Jobs
+  Display List of Jobs running in the backround
+  fg / pg push pull jobs from the foreground / bakground
+  kill %<job number>
+  ctrl - z or kill -19 stop /suspend the job
+  kill -9 <pid> or pkill -9 <name>
+
+Cron Jobs
+  Cron Daemons are the linux version of scheduled jobs
+  checks 
+
+    /var/spool/cron -> use cronjobs
+    /etc/cron.d -> sysstem cronjobs
+
+    Two types of cron jobs
+      system -> affects the whole system, ran as root
+      User -> crontab can creaeted crontab
+
+Cron Jobs (Continued)
+    crontab -u [user] <file>
+
+Cron Syntax
+  Day of Week / Month / Day of Month / Hour / Minute
+
+  0-6          1-12        1-31        0-23    0-59
+
+System Cronjob /etc/crontab
+
+Users in the /var/ directory 
+
+
+./daemon.sh
+
+usermode daemons : all daemons are spawned from parent id 1
+Look for the commands and see if the command is legit
