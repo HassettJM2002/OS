@@ -1,0 +1,245 @@
+Big - BIOS
+Mike – MBR
+Got - GRUB
+Killed - Kernel
+In - Init
+Russia - Runlevel
+2
+
+BIOS
+-First program to run
+-POST
+-Integrity Check
+-Builds Dev Tree
+-Reads/executes first sector in MBR
+
+MBR
+-very first part in bootable disk
+-512 Bytes
+-MBR is located in either dev/(hda|sda|vda)
+
+commands 
+du – disk usage 
+df – disk free, availbe free space
+lsblk – block device, hardware devices 
+
+GRUB
+-Dynamically configrable
+-Start too look for persistence
+-config file boot/grub/menu.list
+
+Kernel
+-Layer between Hardware and OS
+-Memory Management
+-Executes sbin/init
+-ls -l sbin/init 
+
+Init
+-Run level 0-6
+- init run level from /etc / inittab
+- entire startupprocess //etc/init.d
+-Inittab line descriptions (rc – run commands)
+
+Run Level 
+- 0 Off
+1 Single User
+2 MultiUser without network
+.
+.
+.
+5- graphical
+
+
+etc sets global variables
+
+dmidecode -t bios info that you want
+lsblk – storage dvices sc
+
+sudo xxd -l 512 -g / dev /sda 
+
+ssh -J user@winip user@linuxip
+
+ssh -J 
+
+marine-cyber
+Day 6 Windows Processes
+
+- Process validity, make sure the process is supposed to be there, make sure the processes are secure and are what they say they are
+
+- Abnormal things we could see
+1. Processes memory usage
+2. PIDs that aren’t validity
+
+-DLL
+1. DLL standalone program, called on by applications that need that
+
+Services
+1. Executables that run in the background, arent interacted by the user
+
+Finding normal and abnormal activity
+	get-process | select name, id, description | sort -property id
+
+System processes are normally run and stored in C:\Windows\System32
+
+Get-Ciminstance Win32_service |  select Name, Processid, pathname
+
+Malware can hide in many different ways
+	
+Scheduled tasks, tasks that are scheduled at a certain time
+
+Registry Keys auto runs 
+	run
+	run once
+
+Running from abnormal system
+paths
+weird names
+
+Demo
+
+	Get-Process or tasklist
+	get-process | sort -property id | more 
+	get-process | select name, id, descriptions | sort -property id
+	
+	get-process smss, crss, lsass | sort -property id
+	
+	AlsKdJfhG
+
+	get-process chrome foreach {$a} {$_.modules} | more
+	Get-Process -Name "*chrome*" | Select-Object -ExpandProperty Modules | more 
+
+Get-Process chrome | foreach {$a} {$_.modules} | Where-Object ModuleName -like '*chrome*' | more
+
+get-ciminstance win32_process 
+
+get-ciminstance win32_process | get-member
+
+get-ciminstance win32_service | select name, processid, parentprocessid | more
+
+get-ciminstance win32_service | select name, processid, pathname | ft -wrap | more
+	find service  that is running something weird
+
+
+get-service alg | format-list *
+
+get-service | where-object {$_.status -eq “Running”}
+	
+get-scheduledtasks | select *  | select -first 1
+
+Command Prompt Commands
+tasklist /v(#verbose)
+tasklist -m (#associated dlls)
+tasklist /m /fi “imagename = chrome.exe”
+tasklist /fo:table | more
+sc query 
+sc queryx type=service | more
+sc queryex type=service state=inactive
+Get-ScheduledTask | Select * | select-string -pattern IchBinBosh -Context 2,4
+get-nettcpconnection -state established
+
+User Account Control
+	Limits the privilgeges to user run applications
+	requesting elevated privileges requires explicit interactive acknowledge from the user
+	
+	Color coded consent prompts
+		red – Application blocked by group policy
+		blue/gold – Want to allow
+		blue - 
+		yellow -
+
+UAC execution mainfest files
+	asInvoker
+	requireAdministraotr
+	highestAvailable
+
+Why UAC shows up
+	Get around UAC for offensive purpose
+	Evidence of tampering for DCO
+	SysAdmin implement controls against UAC
+
+Elvate Privs
+	.\sigCheck.exe -m C:\windows\regedit.exe
+	look for auto elevated
+	
+	.\strings.exe -s C:\Windows\System32\*.exe | findstr /i autoelevate
+
+SYSINTERNALS
+	PROCMON
+		shows realtime data
+		allows to jump registry locations
+		
+	PROCEXP
+		task manger, parent child format, live view, kill susepend processes all color codedgay
+
+	TCPVIEW
+		Can sort things based on  connections and shit
+
+	PSLOGGEDON
+		Shows users that currently logged onto the users
+
+	LOGONSESSIONS
+		Shows how the user logs in
+
+	PSLIST
+		Command line for gathering process information
+		can be run against multiple machines
+
+	PSINFO
+		Command-line tool that gathers key information 
+
+	HANDLE
+		Shows file referencesm can, get dlls
+	
+	
+	.\procmon show sprocess name pid and other random important stuff
+	process name
+	pid
+	
+	go to file
+	capture events
+	enable boot logging
+	then reboot and get all the processes that run at boot
+	
+	cd C:\SysinternalSuite\
+	.\Procmon.exe /accepteula
+	find the file location and tools and find the process tree
+	parent child relation-ship
+	
+
+	.\autoruns.exe /accepteula
+
+	tcpview
+	find live connections and shit
+	
+	port numbers
+	registed
+	high numbers
+	 
+	will obfuscate stuff within a pattern
+	
+
+	psexec -i -s C:\Windows\Regedite.exe
+
+	.\psloggedon.exe /accepteula
+	fomds who is logged on
+	can run remotely against a lot of different machines
+
+	.\logon sessions
+
+	.\pslists.exe /? to find the help and paramters for the pslist.exe
+
+	all of the sysinternal commands must be run from withing C:\SyssinternalsSuites
+
+	pslists shoes all the processes in a live way, can run
+
+	pslist -s 400 -r 10, refresh, can run remotely against other computrtd
+
+	.\psinfo.exe  shows info on the systeminformation
+	
+	.\strings.exe 
+
+	tasklist to get pid for powershell
+
+
+	.\handle.exe -p 9336 -accepteula
+	shows all the dlls associated with the powershell process
