@@ -102,3 +102,21 @@ find processes with the PPID of 1
     ps -elf | awk -F" " '{print $5}' | egrep "^1$" | wc -l
 find the handles of process by pid, look in the fd coloumn and look for number and then letters to find order and perms
     sudo lsof -p 1427 | tail -4
+
+Aragorn, Bruce Wayne, Eowyn, Tolken Main
+
+Tolkien____MAIN
+Eowyn
+Aragorn
+BruceWayne___
+
+F S UID        PID  PPID  C PRI  NI ADDR SZ WCHAN  STIME TTY          TIME CMD
+5 S root      1804     1  0  80   0 - 15916 -      Jun14 ?        00:00:00 /usr/sbin/sshd
+4 S root      1894  1804  0  80   0 - 23804 -      13:35 ?        00:00:00 sshd: bombadil [priv]
+5 S bombadil  1903  1894  0  80   0 - 23804 -      13:35 ?        00:00:01 sshd: bombadil@pts/1
+4 S root      2944  1804  0  80   0 - 23804 -      Jun21 ?        00:00:00 sshd: bombadil [priv]
+4 S root      2969  1804  0  80   0 - 23804 -      Jun21 ?        00:00:00 sshd: bombadil [priv]
+5 S bombadil  2994  2944  0  80   0 - 23882 -      Jun21 ?        00:00:02 sshd: bombadil@pts/0
+5 S bombadil  2995  2969  0  80   0 - 23804 -      Jun21 ?        00:00:00 sshd: bombadil@notty
+0 S bombadil  2999  2995  0  80   0 -  1061 -      Jun21 ?        00:00:00 /usr/lib/openssh/sftp-server
+0 S bombadil  8516  1906  0  80   0 -  3179 -      15:04 pts/1    00:00:00 grep ssh
