@@ -58,3 +58,19 @@ Users in the /var/ directory
 
 usermode daemons : all daemons are spawned from parent id 1
 Look for the commands and see if the command is legit
+
+
+Source files
+/etc/init.d
+
+cron startup script
+/etc/init/cron
+
+stop
+
+/etc/init.d/cron stop
+service cron start
+systemctl restart cron.service
+
+everything on linux system is a file, running process is a file
+
