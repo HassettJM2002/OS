@@ -74,3 +74,4 @@ systemctl restart cron.service
 
 everything on linux system is a file, running process is a file
 
+Orphans habe a ppid of 1
