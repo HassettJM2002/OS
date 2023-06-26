@@ -112,11 +112,7 @@ Start-Transcript
 
 Get-Content "C:\users\$env:username\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt" all th efiles run on that computer
 
-
+Enable Powershell Script Block Logging
+  
+    reg add HKLM\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging\ /v EnableScriptBlockLogging /t REG_DWORD /d 1 /f
     
-
-      
-          
-          
-      
-    7)
