@@ -1,3 +1,21 @@
 Windows Atrifacts, Auditing, Logging
 
 
+Windows Artifcats
+  Piece of info on user activity
+  Have different information
+
+THe ones that are important
+  UserAssit
+  BAM
+  REcyle BIN
+  Prefitch
+  Jump List
+  Recent Files
+  Browser Artifacts
+
+Getting a SID
+  get0wmiobject win32_useraccount | select name,sid (powershell) domain
+  Get-localUser | select name,sid (powershell) local logons
+  wmic  useraccoun t get name,sid (cmd.exe)
+
