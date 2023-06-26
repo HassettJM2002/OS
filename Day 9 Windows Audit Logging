@@ -86,7 +86,37 @@ Artifacts
        .\strings.exe 'C:\Users\<username>\AppData\Local\Google\Chrome\User Data\Default\topsites'
 
     7) Windows Auditing
+        Windows Event Logs, 
+          1) Application -> contains events logged by applications
+          2) Security -> Contains events such as valid/invalid logon attempts and other events related to resource use like creating opening or deleting files
+          3) System
 
-        
+
+        auditpol /get /category:*
+        get-winevent -listlog * 
+
+
+        (get-winevent -listlog*).count
+      Get-Winevent -FilterHashtable @{logname='Security';id='4624'} | ft -Wrap 
+   ProviderName: Microsoft-Windows-Security-Auditing
+
+    Need to be in system32
+    wevtutil el | find /c /v ""
+
+    wevtutil gli security
+
+    wevtutil qe security C:3 /f:text
+
+
+Start-Transcript
+
+Get-Content "C:\users\$env:username\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt" all th efiles run on that computer
+
+
+    
+
+      
+          
+          
       
     7)
