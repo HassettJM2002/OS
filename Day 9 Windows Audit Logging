@@ -19,3 +19,6 @@ Getting a SID
   Get-localUser | select name,sid (powershell) local logons
   wmic  useraccoun t get name,sid (cmd.exe)
 
+Knowing the SID
+  is important because tje SID is how you can find the user, not the name or username
+
