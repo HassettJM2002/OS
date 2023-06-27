@@ -1,1 +1,58 @@
+Linux Audting and Logging
 
+Logs for Authentication 
+    
+  /var/log/auth.log - Authentication related events -> look for ssh, how many times the logon attempts
+  /var/run/utmp - Users currently logged in ->
+  /var/log/wtmp - History file for utmp
+  /var/log/btmp - Failed login attempts
+
+Application
+  apache -> web servier directory
+  apt -> package manager directory
+  /var/log/mysql.log
+
+System
+  /var/log/messages -> legacy catch all
+  /var/log/syslog -> Ubuntu/Devian Catch all
+  dmesg -> Device messanger -> queries /proc/ksmg
+
+Logging at a Glance
+    /var/log
+    /etc/rsyslog.conf
+    /usr/sbin/rsyslogd
+
+Logging Daemon
+  /usr/sbin/rsyslogd
+    user space damen reads messages written to /dev/log
+      kernel ring buffer -> has access to the whole system
+
+COnfig file
+  /etc/rsyslog.conf
+    log entries follow syslog standard faciility.severity
+  facility -> program or part of system
+  severity -> urgency
+
+Best Practices for log enumeration and managemment
+  Best Practices
+  Meaningful naming scheme
+  separate logs logiccially and by impoirtanmce
+  sync time across network
+  control log access
+
+Utilize cron jobs /scripts
+  logrote
+    /etc/logrotate.comf
+    how large the files get and how long do you keep them
+
+Usefull logging commands
+  tail -f
+  less /var/log/syslog
+  logger
+  /var/log/messages
+  last -f /var/log{wtmp,btmp}
+
+RFC is the standard for whatevr protocol 
+
+  
+  
