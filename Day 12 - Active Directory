@@ -24,3 +24,8 @@ Get-ADUSer
 Enable-ADAccount -Identity guest, set new persistence, and then add to admin group to give administrator privileges, enable it
 
 gpresult.exe /user Administrator /v give all the policies for the user and the group
+Basic users should not have admin privilges
+
+(get-adgroupmember -identity domain admins).name
+
+(get-adgroupmember -identity "System Admins").name
