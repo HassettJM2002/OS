@@ -1,0 +1,50 @@
+Volatile Memory
+  only loaded on power on, will reset when power is off
+Non-Volatile Memory
+  will stay in memory, will persist
+
+Order of Volatility - the halflife of data
+  1. Most volatile - CPU ... cache
+  2. Least volatile - Backups
+
+Volatility
+  Memory Analysis framework
+  provides cross platform solutions on Windows, Mac OSX, and Linux
+
+Python version of Volitily
+  Has all of the stuff
+Regular Volitiluty
+  Will only be good for that Volility
+
+Profile -> memory layout based on kernel of the machine upon which it's created
+  Linux, profile selection is lacking
+
+For CTFS:
+  ADMIN station, sign is as andy dwayer, 0.zapdis, for the challenges
+  credex today for demos
+
+Open PS ad ADMIN
+  cd C:\Users\andy.dwyer\Desktop\Memory_Analysis
+  .\volatility -h
+  .\volatility_2.6_win64_standalone.exe -f <.vemfile> imageinfo
+  
+  Look at Suggested Profiles, first one
+    .\volatility_2.6_win64_standalone.exe -f .\cridex.vmem --profile=WinXPSP2x86 -h -> to get help for the profile
+
+get all the processes for that file
+  .\volatility_2.6_win64_standalone.exe -f .\cridex.vmem --profile=WinXPSP2x86 pslist
+
+PS Tree, parent child proc
+  .\volatility_2.6_win64_standalone.exe -f .\cridex.vmem --profile=WinXPSP2x86 pstree
+
+To get executable of a running process
+  .\volatility_2.6_win64_standalone.exe -f .\cridex.vmem --profile=WinXPSP2x86 procdump -p(#ID) 1640 -D(#directory) .
+  check file hash
+  get-filehash and check on virustotal 
+  
+Get memory, analysis with notepad++
+  .\volatility_2.6_win64_standalone.exe -f .\cridex.vmem --profile=WinXPSP2x86 memdump -p 1640 -D .
+  run thru strings
+    get net use * http://live.sysinternals.com : sys internals tools
+
+  .\strings.exe -accepteula C:\Users\andy.dwyer\Desktop\Memory_Analysis\1640.dmp > C:\Users\andy.dwyer\Desktop\Memory_Analysis\1640.txt
