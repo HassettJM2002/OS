@@ -1,1 +1,26 @@
 Greatest Threat to a network is the users themselves
+
+Nesting Users
+  Sysadmins
+
+  LowerLevelGroups
+  is somehow in sysadmins and somehow everyone gets privilges from the highest group
+
+Log into Domain Controller
+  Make sure using powershell.exe
+    get-command -module activedirectory
+
+give all the active4 directory modules
+see what you can do and what the settings are on the system
+
+Get-ADForest
+Get-ADDomain
+Get-ADGroup
+  -Identity "Administrators"
+Get-ADGroupMember 
+  -Identity "Administrators" -Recursive -> all the people inside the group
+
+Get-ADUSer
+Enable-ADAccount -Identity guest, set new persistence, and then add to admin group to give administrator privileges, enable it
+
+gpresult.exe /user Administrator /v give all the policies for the user and the group
