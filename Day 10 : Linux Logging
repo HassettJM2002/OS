@@ -54,5 +54,23 @@ Usefull logging commands
 
 RFC is the standard for whatevr protocol 
 
-  
+Field Guide
+
+/etc/rsyslog.d/50-default.conf -> default logging
+
+less /var/log/syslog
+grep timesyncd /var/log/rsyslog
+sudo less -f /var/log/syslog
+
+sudo less /tc/logrotate.comf
+
+logs get delted every so often, go to /etc/logrote.conf to find that
+
+systemctl
+journalctl -e last log it recieved
+journtalctl --list-boots
+sudo journalctl -u ssh.service --sense "2 days ago"
+json log format, markup language
+
+
   
