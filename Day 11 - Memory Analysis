@@ -48,3 +48,15 @@ Get memory, analysis with notepad++
     get net use * http://live.sysinternals.com : sys internals tools
 
   .\strings.exe -accepteula C:\Users\andy.dwyer\Desktop\Memory_Analysis\1640.dmp > C:\Users\andy.dwyer\Desktop\Memory_Analysis\1640.txt
+
+Scan Connection
+  .\volatility_2.6_win64_standalone.exe -f .\cridex.vmem --profile=WinXPSP2x86 connections -> active connections
+  .\volatility_2.6_win64_standalone.exe -f .\cridex.vmem --profile=WinXPSP2x86 connscan -> active and recenlty terminated
+
+pslit
+pscan
+who spawned what, owner, where it came from, overall enumeration
+find dlls, shared libraries
+then move on to the network artificats
+hunt for code injections
+look for root kids with proc tree
