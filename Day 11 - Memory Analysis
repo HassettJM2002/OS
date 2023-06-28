@@ -60,3 +60,4 @@ find dlls, shared libraries
 then move on to the network artificats
 hunt for code injections
 look for root kids with proc tree
+
