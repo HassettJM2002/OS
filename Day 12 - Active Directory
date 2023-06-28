@@ -35,3 +35,4 @@ Search-ADAccount -Server $ThisDomain -Credential $Creds -AccountExpired -UsersOn
 Get-ADUser -Filter * -Properties EmailAddress | select-object emailaddress | where-object {$_
 .emailaddress -notlike "*mail.mil"}
 
+DC=ForestDnsZones,DC=army,DC=warriors, DC=DomainDnsZones,DC=army,DC=warriors, CN=Configuration,DC=army,DC=warriors
