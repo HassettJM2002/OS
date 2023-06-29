@@ -63,3 +63,14 @@ cyber chef, encoding in rot13 find that one
 locations, what info to look for
 
 END OF REVIEW
+
+
+Linux Notes:
+  find if the machine is systemd or sysv
+  file /sbin/init, see the symbolic link to the file
+
+systemd
+  systemctl list-units
+
+sysv
+  service <servicename> status/start/stop/restart
