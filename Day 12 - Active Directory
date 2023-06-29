@@ -36,3 +36,7 @@ Get-ADUser -Filter * -Properties EmailAddress | select-object emailaddress | whe
 .emailaddress -notlike "*mail.mil"}
 
 DC=ForestDnsZones,DC=army,DC=warriors, DC=DomainDnsZones,DC=army,DC=warriors, CN=Configuration,DC=army,DC=warriors
+
+
+
+
