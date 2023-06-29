@@ -71,6 +71,13 @@ Linux Notes:
 
 systemd
   systemctl list-units
+  systemctl list-units --all
 
+  systemctl status <servicename.service>
+  systemctl status <PID of service>
+
+  systemctl start/stop/restart <servicename.service>
 sysv
   service <servicename> status/start/stop/restart
+
+~/.bash ~/.bashrc ~./bash_profile
