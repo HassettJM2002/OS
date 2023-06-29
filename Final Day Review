@@ -1,0 +1,65 @@
+2 Boxes -> 1 windows box and linux box
+Download Copy To Workstation
+
+xrdp in windows -> xfreerdp /u:andy.dwyer /v:_._._._ /dynamic-resolution +glyph-cache +clipboard
+ssh to linux box -> ssh <user>@<IP>
+
+4 Linux questions
+6 Windows questions
+
+4 hour of notes
+
+Title tells a lot
+Look at connections
+processes
+artifacts
+/etc/hosts
+persistence
+
+Windows
+##########
+Network
+##########
+  Netstat -anob
+  Get-Nettcpconnections for Powershell.exe
+     Look for ports that are strange
+     Look for Meterpreter shell ports
+
+########################################################################################
+Processes
+###############################################
+get-process -> parent child relationship, who spawned who, look who spawned who, look for legitimate PIDs
+htop / top / atop
+ 
+
+Linux
+network
+Netstat -anop / ltup
+
+############
+processes
+############
+ps -elf
+sysv -> systemctl command
+
+
+start mechanism -> who turned on that process, what turned it on, what started that process, schtasks, user, cronjob
+
+cronjob,schtasks,
+
+persistence
+registry
+-the run keys are where persistence is usually located
+scheduled tasks
+-will find 
+profiles
+-powershell profiles, when startup and when powershell is run, $PSHOME
+-linux profiles
+
+net use * http://live.sysinternals.com
+
+artifacts, where to find them, auditing and logging
+cyber chef, encoding in rot13 find that one
+locations, what info to look for
+
+END OF REVIEW
