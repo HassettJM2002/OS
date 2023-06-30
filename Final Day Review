@@ -17,30 +17,37 @@ artifacts
 persistence
 
 Windows
-##########
-Network
-##########
+#######################
+Network / Connections
+#######################
   Netstat -anob
   Get-Nettcpconnections for Powershell.exe
      Look for ports that are strange
      Look for Meterpreter shell ports
+  
+Linux
+  network
+  Netstat -anop / ltup
 
-########################################################################################
+#####################
 Processes
-###############################################
+#####################
 get-process -> parent child relationship, who spawned who, look who spawned who, look for legitimate PIDs
 htop / top / atop
  
-
-Linux
-network
-Netstat -anop / ltup
-
 ############
-processes
+Processes
 ############
 ps -elf
 sysv -> systemctl command
+
+#############
+Artifacts
+#############
+
+#############
+Persistance
+#############
 
 
 start mechanism -> who turned on that process, what turned it on, what started that process, schtasks, user, cronjob
