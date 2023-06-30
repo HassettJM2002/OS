@@ -101,7 +101,62 @@ file /sbin/init, determine what commands to use with services
 #############
 Artifacts
 #############
+  HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\{GUID}\Count\
+  encoded in ROT13
 
+  Get-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\{GUID}\Count"
+  ROT13 -> on the output
+
+---BAM
+    Windows Service that Controls activiy of background applications
+
+    systeminfo
+    get-computer info | select osname,osversion,OsHardwareAbstractionLayer
+
+    Get-Item HKLM:\SYSTEM\CurrentControlSet\Services\bam\state\UserSettings\*
+    wmic useraccount  get caption,sid | more
+
+---Recycle
+      SID - determines which user deleted it
+      Timestamp - When it was deleted
+      $RXXXXXX - content of deleted files
+      $IXXXXXX - original PATH and name
+    Location:
+      C:\$Recycle.bin
+    Get-Childitem 'C:\$RECYCLE.BIN' -Recurse -Verbose -Force | select FullName
+     wmic useraccount where 'sid="S-1-5-21-1584283910-3275287195-1754958050-1005"' get name 
+Name
+    
+  C:\Windows\Prefetch
+      Get-Childitem -Path 'C:\Windows\Prefetch' -ErrorAction Continue | select -First 8
+
+---Jumplists
+      allow users to “jump” or access items they have frequently or recently used quickly and easily.
+
+    Get-Childitem -Recurse C:\Users\*\AppData\Roaming\Microsoft\Windows\Recent -ErrorAction Continue | select FullName, LastAccessTime
+    
+---Recent Files
+    Location
+      HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs
+      HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs\.txt
+    Get-Item 'Registry::\HKEY_USERS\*\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs\.*' 
+    Get-Item 'Registry::\HKEY_USERS\*\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs\.txt'
+
+---Browser Artifacts
+    Location
+    Win7/8/10
+      %USERPROFILE%\AppData\Local\Google\Chrome\User Data\Default\history
+      C:\Users\andy.dwyer\AppData\Local\Google\Chrome\User Data\Default\
+    .\strings.exe 'C:\users\andy.dwyer\AppData\Local\Google\Chrome\User Data\Default\History' -accepteula
+    strings.exe 'C:\users\andy.dwyer\AppData\Local\Google\Chrome\User Data\Default\Top Sites'
+    strings.exe  'C:\users\andy.dwyer\AppData\Local\Google\Chrome\User Data\Default\Login Data'
+
+    FQDN 
+    $History = (Get-Content 'C:\users\student\AppData\Local\Google\Chrome\User Data\Default\History') -replace "[^a-zA-Z0-9\.\:\/]",""
+    $History| Select-String -Pattern "(https|http):\/\/[a-zA-Z_0-9]+\.\w+[\.]?\w+" -AllMatches|foreach {$_.Matches.Groups[0].Value}| ft
+    new-item C:\Users\andy.dwyer\Desktop\Auditing.txt
+    auditpol /get /category:*
+    
 #############
 Persistance
 #############
@@ -123,7 +178,11 @@ Persistance
   HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders
   HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon
 
-
+###############
+Users
+###############
+  Get-LocalUser | select Name,SID
+  wmic UserAccount get name,sid
 
 start mechanism -> who turned on that process, what turned it on, what started that process, schtasks, user, cronjob
 
