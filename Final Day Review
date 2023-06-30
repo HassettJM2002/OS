@@ -18,6 +18,8 @@ artifacts
 /etc/hosts
 persistence
 
+grep -r "" file
+
 Windows
 #######################
 Network / Connections
