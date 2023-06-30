@@ -67,7 +67,37 @@ Processes / Services
     sysv -> systemctl command
 
 --Linux Services
-    
+file /sbin/init, determine what commands to use with services
+----SysV Services
+      service <servicename> status/start/stop/restart
+
+----SystemD Services
+      Get Services
+        systemctl list-units
+        systemctl list-units --all
+      Get the Status of a Service
+        systemctl status <servicename.service>
+        systemctl status <PID>
+
+--CronJob
+  /var/spool/cron
+  /var/spool/cron/crontabs/
+  /etc/cron.d
+  /etc/crontab
+
+  crontab -u [user] file This command will load the crontab data from the specified file
+  crontab -l -u [user] This command will display/list user’s crontab contents
+  crontab -r -u [user] This Command will remove user’s crontab contents
+  crontab -e -u [user] This command will edit user’s crontab contents
+
+--File Descriptors
+    sudo lsof | tail -30
+    sudo lsof -c sshd
+--Proc Directories
+    ls -l /proc/
+    ps -elf | grep sshd
+    sudo ls -l /proc/<PID>
+
 #############
 Artifacts
 #############
