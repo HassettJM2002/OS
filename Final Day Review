@@ -4,6 +4,8 @@ Download Copy To Workstation
 xrdp in windows -> xfreerdp /u:andy.dwyer /v:_._._._ /dynamic-resolution +glyph-cache +clipboard
 ssh to linux box -> ssh <user>@<IP>
 
+net use * http://live.sysinternals.com
+
 4 Linux questions
 6 Windows questions
 
@@ -29,18 +31,43 @@ Linux
   network
   Netstat -anop / ltup
 
-#####################
-Processes
-#####################
-get-process -> parent child relationship, who spawned who, look who spawned who, look for legitimate PIDs
-htop / top / atop
- 
-############
-Processes
-############
-ps -elf
-sysv -> systemctl command
 
+
+#####################
+Processes / Services
+#####################
+(1a) - Windows
+  tasklist [/svc (services)]
+  get-process | Sort -Property Id | more -> parent child relationship, who spawned who, look who spawned who, look for legitimate PIDs
+  Get-Process | Select Name, Id, Description | Sort -Property Id | more
+  
+  
+  Get-Ciminstance Win32_service | Select Name, Processid, Pathname | ft -wrap | more
+  tasklist /m | more
+  tasklist /m /fi "IMAGENAME eq chrome.exe"
+
+  sc.exe query | more
+  get-service
+  Get-Service | Where-Object {$_.Status -eq "Running"}
+  sc queryex type=service
+  sc queryex type=service state=inactive
+  net start
+  Get-ScheduledTask | Select * | select -First 1
+  chtasks /query /tn "IchBinBosh" /v /fo list
+  HKLM\System\CurrentControlSet\Services
+
+  System Processes run from C:\Windows\System32
+  Chrome runs from C:\Program Files
+
+(1b) - Linux
+--Linux Processes
+    Get Process: ps -elf
+    Get Processes that spawned from parent with pid X: ps --ppid X -lf | head
+    Visual Representation of tree: ps -elf --forest | tail 
+    sysv -> systemctl command
+
+--Linux Services
+    
 #############
 Artifacts
 #############
@@ -48,6 +75,24 @@ Artifacts
 #############
 Persistance
 #############
+(1a) Windows ->
+  - CMD.EXE
+      reg query <Reg Key>
+      reg delete <Reg Key> <Value>
+  - Powershell.exe
+      Read Subkeys: Get-Childitem <Reg Key>
+      Get Value of Keys: Get-Item <Reg Key>      
+
+(1b) Windows Important Registry Keys
+  HKLM\Software\Microsoft\Windows\CurrentVersion\Run
+  HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce
+  HKU\<SID>\Software\Microsoft\Windows\CurrentVersion\Run
+  HKU\<SID>\Software\Microsoft\Windows\CurrentVersion\RunOnce
+  HKLM\SYSTEM\CurrentControlSet\services
+  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders
+  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders
+  HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon
+
 
 
 start mechanism -> who turned on that process, what turned it on, what started that process, schtasks, user, cronjob
