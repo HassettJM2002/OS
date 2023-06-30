@@ -156,7 +156,25 @@ Name
     $History| Select-String -Pattern "(https|http):\/\/[a-zA-Z_0-9]+\.\w+[\.]?\w+" -AllMatches|foreach {$_.Matches.Groups[0].Value}| ft
     new-item C:\Users\andy.dwyer\Desktop\Auditing.txt
     auditpol /get /category:*
-    
+
+    auditpol /get /category:"Object Access"
+
+---Event Logs
+      Get-Eventlog
+      Get-WinEvent
+      wevtutil
+      auditpol /get /category:*
+      wevtutil el | find /c /v ""
+      wevtutil qe security /c:3 /f:text
+      Get-EventLog -LogName System -Newest 10
+      Get-Eventlog -LogName Security | ft -wrap
+      Get-Eventlog -LogName Security | ft -wrap | findstr /i StR1nG
+      Get-WinEvent -Listlog *
+      (Get-WinEvent -Listlog *).count
+      Get-WinEvent -Listlog * | findstr /i "Security"
+      Get-History
+      Get-Content C:\Users\username\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt
+
 #############
 Persistance
 #############
