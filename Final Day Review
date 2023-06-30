@@ -202,6 +202,10 @@ Users
   Get-LocalUser | select Name,SID
   wmic UserAccount get name,sid
 
+~/.bash ~/.bashrc ~./bash_profile
+get things for individual profiles
+
+
 start mechanism -> who turned on that process, what turned it on, what started that process, schtasks, user, cronjob
 
 cronjob,schtasks,
